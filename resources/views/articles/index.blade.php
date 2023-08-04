@@ -51,8 +51,8 @@
                                             <td>{{ $article->group }}</td>
                                             <td>{{ $article->category }}</td>
                                             <td>
-                                                {{-- <a class="btn btn-primary" href="{{ url('/fabric/edit', $fabric->id) }}"><i
-                                                        class="fas fa-edit"></i></a> --}}
+                                                <a class="btn btn-primary" href="/articles/{{ $article->partnumber }}"><i
+                                                        class="fas fa-eye"></i></a>
 
                                                 {{-- <form action="{{ url('fabric/delete', $fabric->id) }}" method="post">
                                                     @csrf

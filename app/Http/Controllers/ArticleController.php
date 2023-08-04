@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Consumption;
+use App\Models\Forecast;
+use App\Models\Spk;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -15,8 +18,8 @@ class ArticleController extends Controller
     public function index()
     {
         return view('articles.index', [
-            'articles' => Article::all(),
-            'title' => 'Article'
+            'title' => 'Article',
+            'articles' => Article::all()
         ]);
     }
 
@@ -47,24 +50,30 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Article $article)
+    public function show($article)
     {
-        // $consumptions = Consumption::with('spk', 'fabric', 'article')
-        //     ->whereHas('spk', function ($query) use ($spk) {
-        //         $query->where('no_spk', '=', $spk);
-        //     })->get();
 
-        dd($article);
+        $consumptions = Consumption::with('spk', 'fabric', 'article')
+            ->whereHas('article', function ($query) use ($article) {
+                $query->where('partnumber', '=', $article);
+            })->get();
 
-        // $consumptions = Consumption::latest()->filter(request(['spk']))->limit(5)->get();
-        // @dd($consumptions);
-        // dd($consumptions);
-        // $spk_s = SPK::with('forecast', 'consumptions')->where('no_spk', '=', $spk)->get();
-        // return view('spk_s.show', [
-        //     'spks' => $spk_s,
-        //     'consumptions' => $consumptions,
-        //     'title' => 'SPK'
-        // ]);
+        // $forecasts = Forecast::with('article')->limit(5)->get();
+        $forecasts = Forecast::with('article')
+            ->whereHas('article', function ($query) use ($article) {
+                $query->where('partnumber', '=', $article);
+            })->get();
+
+        $article = Article::where('partnumber', '=', $article)->first();
+
+        // @dd($forecasts);
+
+        return view('articles.show', [
+            'title' => 'Article',
+            'consumptions' => $consumptions,
+            'forecasts' => $forecasts,
+            'article' => $article,
+        ]);
     }
 
     /**

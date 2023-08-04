@@ -18,7 +18,7 @@ class Article extends Model
 
     public function consumptions()
     {
-        return $this->hasMany(Forecast::class);
+        return $this->hasMany(Consumption::class);
     }
 
 }

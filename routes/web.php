@@ -25,7 +25,7 @@ Route::get('/', function () {
 });
 
 Route::get('/articles', [ArticleController::class, 'index']);
-Route::get('/articles/{article:name}', [ArticleController::class, 'show']);
+Route::get('/articles/{article:partnumber}', [ArticleController::class, 'show']);
 
 Route::get('/fabrics', [FabricController::class, 'index']);
 

@@ -49,34 +49,6 @@
                                             <td>{{ $spk->date }}</td>
                                         </tr>
                                     @endforeach
-
-                                    {{-- @foreach ($spks_s as $spk) --}}
-                                    {{-- @dd($spk); --}}
-                                    <tr>
-                                        {{-- <td>{{ $spk->forecast->id }}</td> --}}
-                                        {{-- <td>{{ $spk->no_spk }}</td>
-                                            <td>{{ $spk->makloon->name }}</td>
-                                            <td>{{ $spk->forecast->article->name }}</td>
-                                            <td>{{ $spk->date }}</td>
-                                            <td>{{ $spk->spk_s }}</td>
-                                            <td>{{ $spk->spk_m }}</td>
-                                            <td>{{ $spk->spk_l }}</td>
-                                            <td>{{ $spk->spk_xl }}</td>
-                                            <td>{{ $spk->spk_2xl }}</td>
-                                            <td>{{ $spk->spk_3xl }}</td> --}}
-                                        {{-- <td>
-                                                <form action="{{ url('fabric/delete', $fabric->id) }}" method="post">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <a class="btn btn-primary"
-                                                        href="{{ url('/fabric/edit', $fabric->id) }}"><i
-                                                            class="fas fa-edit"></i></a>
-                                                    <button class="btn btn-primary" type="submit"><i
-                                                            class="fas fa-trash"></i></button>
-                                                </form>
-                                            </td> --}}
-                                    </tr>
-                                    {{-- @endforeach --}}
                                 </tbody>
                             </table>
                         </div>

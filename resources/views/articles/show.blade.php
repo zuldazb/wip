@@ -24,47 +24,69 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card">
-                        {{-- <div class="card-header">
-                            <h3 class="card-title">DataTable with minimal features & hover style</h3>
-                        </div> --}}
+                        <div class="card-header">
+                            <h3 class="card-title">Article Detail</h3>
+                        </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example1" class="table table-bordered table-hover">
+                            <table id="" class="table table-bordered table-hover">
                                 {{-- @dd($spk); --}}
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
-                                        <th>No SPK</th>
+                                        <th>Entity</th>
+                                        <th>Part Number</th>
                                         <th>Article</th>
-                                        <th>Date</th>
+                                        <th>Group</th>
+                                        <th>Category</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {{-- @dd($spk_head); --}}
-                                    @foreach ($spks as $spk)
-                                        <tr>
-                                            <td>{{ $spk->id }}</td>
-                                            <td>{{ $spk->no_spk }}</td>
-                                            <td>{{ $spk->forecast->article->name }}</td>
-                                            <td>{{ $spk->date }}</td>
-                                        </tr>
-                                    @endforeach
-
-                                    {{-- @foreach ($spks_s as $spk) --}}
-                                    {{-- @dd($spk); --}}
                                     <tr>
-                                        {{-- <td>{{ $spk->forecast->id }}</td> --}}
-                                        {{-- <td>{{ $spk->no_spk }}</td>
-                                            <td>{{ $spk->makloon->name }}</td>
-                                            <td>{{ $spk->forecast->article->name }}</td>
-                                            <td>{{ $spk->date }}</td>
-                                            <td>{{ $spk->spk_s }}</td>
-                                            <td>{{ $spk->spk_m }}</td>
-                                            <td>{{ $spk->spk_l }}</td>
-                                            <td>{{ $spk->spk_xl }}</td>
-                                            <td>{{ $spk->spk_2xl }}</td>
-                                            <td>{{ $spk->spk_3xl }}</td> --}}
-                                        {{-- <td>
+                                        <td>{{ $article->entity }}</td>
+                                        <td>{{ $article->partnumber }}</td>
+                                        <td>{{ $article->name }}</td>
+                                        <td>{{ $article->group }}</td>
+                                        <td>{{ $article->category }}</td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Consumption</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table id="" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Fabric</th>
+                                        <th>Supplier</th>
+                                        <th>S</th>
+                                        <th>M</th>
+                                        <th>L</th>
+                                        <th>XL</th>
+                                        <th>2XL</th>
+                                        <th>3XL</th>
+                                        <th>Avg.</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($consumptions as $consumption)
+                                        {{-- @dd($consumption->fabric->name); --}}
+                                        <tr>
+                                            <td>{{ $consumption->fabric->name }}</td>
+                                            <td>{{ $consumption->fabric->supplier }}</td>
+                                            <td>{{ $consumption->cons_s }}</td>
+                                            <td>{{ $consumption->cons_m }}</td>
+                                            <td>{{ $consumption->cons_l }}</td>
+                                            <td>{{ $consumption->cons_xl }}</td>
+                                            <td>{{ $consumption->cons_2xl }}</td>
+                                            <td>{{ $consumption->cons_3xl }}</td>
+                                            <td></td>
+                                            {{-- <td>
                                                 <form action="{{ url('fabric/delete', $fabric->id) }}" method="post">
                                                     @csrf
                                                     @method('DELETE')
@@ -75,50 +97,59 @@
                                                             class="fas fa-trash"></i></button>
                                                 </form>
                                             </td> --}}
-                                    </tr>
-                                    {{-- @endforeach --}}
-                                </tbody>
-                            </table>
-                        </div>
-                        <!-- /.card-body -->
-                    </div>
-                    <!-- /.card -->
-                    <div class="card">
-                        {{-- <div class="card-header">
-                            <h3 class="card-title">DataTable with minimal features & hover style</h3>
-                        </div> --}}
-                        <!-- /.card-header -->
-                        <div class="card-body">
-                            <table id="example1" class="table table-bordered table-hover">
-                                <thead>
-                                    <tr>
-                                        <th></th>
-                                        <th>Fabric</th>
-                                        <th>Cons S</th>
-                                        <th>Cons M</th>
-                                        <th>Cons L</th>
-                                        <th>Cons XL</th>
-                                        <th>Cons 2XL</th>
-                                        <th>Cons 3XL</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($consumptions as $consumption)
-                                        <tr>
-                                            <td>{{ $consumption->id }}</td>
-                                            <td>{{ $consumption->fabric->name }}</td>
-                                            <td>{{ $consumption->cons_s }}</td>
-                                            <td>{{ $consumption->cons_m }}</td>
-                                            <td>{{ $consumption->cons_l }}</td>
-                                            <td>{{ $consumption->cons_xl }}</td>
-                                            <td>{{ $consumption->cons_2xl }}</td>
-                                            <td>{{ $consumption->cons_3xl }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>
                             </table>
                         </div>
-                        <!-- /.card-body -->
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Forecast</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table id="" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>S</th>
+                                        <th>M</th>
+                                        <th>L</th>
+                                        <th>XL</th>
+                                        <th>2XL</th>
+                                        <th>3XL</th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($forecasts as $forecast)
+                                        {{-- @dd($consumption->fabric->name); --}}
+                                        <tr>
+                                            <td>{{ $forecast->date }}</td>
+                                            <td>{{ $forecast->fc_s }}</td>
+                                            <td>{{ $forecast->fc_m }}</td>
+                                            <td>{{ $forecast->fc_l }}</td>
+                                            <td>{{ $forecast->fc_xl }}</td>
+                                            <td>{{ $forecast->fc_2xl }}</td>
+                                            <td>{{ $forecast->fc_3xl }}</td>
+                                            <td></td>
+                                            {{-- <td>
+                                                <form action="{{ url('fabric/delete', $fabric->id) }}" method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <a class="btn btn-primary"
+                                                        href="{{ url('/fabric/edit', $fabric->id) }}"><i
+                                                            class="fas fa-edit"></i></a>
+                                                    <button class="btn btn-primary" type="submit"><i
+                                                            class="fas fa-trash"></i></button>
+                                                </form>
+                                            </td> --}}
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                     <!-- /.card -->
 
