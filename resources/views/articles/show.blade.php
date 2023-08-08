@@ -85,7 +85,7 @@
                                             <td>{{ $consumption->cons_xl }}</td>
                                             <td>{{ $consumption->cons_2xl }}</td>
                                             <td>{{ $consumption->cons_3xl }}</td>
-                                            <td></td>
+                                            <td>{{ $consumption->average() }}</td>
                                             {{-- <td>
                                                 <form action="{{ url('fabric/delete', $fabric->id) }}" method="post">
                                                     @csrf
@@ -133,7 +133,7 @@
                                             <td>{{ $forecast->fc_xl }}</td>
                                             <td>{{ $forecast->fc_2xl }}</td>
                                             <td>{{ $forecast->fc_3xl }}</td>
-                                            <td></td>
+                                            <td>{{ $forecast->total() }}</td>
                                             {{-- <td>
                                                 <form action="{{ url('fabric/delete', $fabric->id) }}" method="post">
                                                     @csrf

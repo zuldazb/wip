@@ -47,15 +47,15 @@
                                     @foreach ($forecasts as $forecast)
                                     {{-- @dd($forecast); --}}
                                         <tr>
-                                            <td>{{ $forecast['date'] }}</td>
-                                            <td>{{ $forecast['article']['name'] }}</td>
-                                            <td>{{ $forecast['fc_s'] }}</td>
-                                            <td>{{ $forecast['fc_m'] }}</td>
-                                            <td>{{ $forecast['fc_l'] }}</td>
-                                            <td>{{ $forecast['fc_xl'] }}</td>
-                                            <td>{{ $forecast['fc_2xl'] }}</td>
-                                            <td>{{ $forecast['fc_3xl'] }}</td>
-                                            <td>{{ $forecast['total'] }}</td>
+                                            <td>{{ $forecast->date }}</td>
+                                            <td>{{ $forecast->article->name }}</td>
+                                            <td>{{ $forecast->fc_s }}</td>
+                                            <td>{{ $forecast->fc_m }}</td>
+                                            <td>{{ $forecast->fc_l }}</td>
+                                            <td>{{ $forecast->fc_xl }}</td>
+                                            <td>{{ $forecast->fc_2xl }}</td>
+                                            <td>{{ $forecast->fc_3xl }}</td>
+                                            <td>{{ $forecast->total() }}</td>
                                             {{-- <td>
                                                 <form action="{{ url('fabric/delete', $fabric->id) }}" method="post">
                                                     @csrf

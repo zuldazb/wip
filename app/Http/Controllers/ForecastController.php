@@ -16,11 +16,6 @@ class ForecastController extends Controller
     {
         $forecasts = Forecast::with('article')->get();
 
-        $forecasts = $forecasts->map(function ($item, $key) {
-            $item->total = $item->fc_s + $item->fc_m + $item->fc_l + $item->fc_xl + $item->fc_2xl + $item->fc_3xl;
-            return collect($item)->toArray();
-        });
-
         return view('forecasts.index', [
             'forecasts' => $forecasts,
             'title' => 'Forecast'

@@ -17,11 +17,6 @@ class ConsumptionController extends Controller
 
         $consumptions = Consumption::with('article','fabric')->get();
 
-        $consumptions = $consumptions->map(function ($item, $key) {
-            $item->avg = ($item->cons_s + $item->cons_m + $item->cons_l + $item->cons_xl + $item->cons_2xl + $item->cons_3xl) / 6;
-            return collect($item)->toArray();
-        });
-
         return view('consumptions.index', [
             'consumptions' => $consumptions,
             'title' => 'Consumption'

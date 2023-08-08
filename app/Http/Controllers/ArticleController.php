@@ -53,26 +53,23 @@ class ArticleController extends Controller
     public function show($article)
     {
 
+        $articles = Article::where('partnumber', '=', $article)->first();
+
         $consumptions = Consumption::with('spk', 'fabric', 'article')
             ->whereHas('article', function ($query) use ($article) {
                 $query->where('partnumber', '=', $article);
             })->get();
 
-        // $forecasts = Forecast::with('article')->limit(5)->get();
         $forecasts = Forecast::with('article')
             ->whereHas('article', function ($query) use ($article) {
                 $query->where('partnumber', '=', $article);
             })->get();
 
-        $article = Article::where('partnumber', '=', $article)->first();
-
-        // @dd($forecasts);
-
         return view('articles.show', [
             'title' => 'Article',
             'consumptions' => $consumptions,
             'forecasts' => $forecasts,
-            'article' => $article,
+            'article' => $articles,
         ]);
     }
 

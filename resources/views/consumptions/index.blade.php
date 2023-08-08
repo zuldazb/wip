@@ -52,15 +52,15 @@
                                             <td>{{ $forecast['date'] }}</td>
                                             <td>{{ $forecast['article']['name'] }}</td> --}}
 
-                                            <td>{{ $consumption['article']['name'] }}</td>
-                                            <td>{{ $consumption['fabric']['name'] }}</td>
-                                            <td>{{ number_format((float) $consumption['cons_s'], 3) }}</td>
-                                            <td>{{ number_format((float) $consumption['cons_m'], 3) }}</td>
-                                            <td>{{ number_format((float) $consumption['cons_l'], 3) }}</td>
-                                            <td>{{ number_format((float) $consumption['cons_xl'], 3) }}</td>
-                                            <td>{{ number_format((float) $consumption['cons_2xl'], 3) }}</td>
-                                            <td>{{ number_format((float) $consumption['cons_3xl'], 3) }}</td>
-                                            <td>{{ number_format((float) $consumption['avg'], 3) }}</td>
+                                            <td>{{ $consumption->article->name }}</td>
+                                            <td>{{ $consumption->fabric->name }}</td>
+                                            <td>{{ number_format((float) $consumption->cons_s, 3) }}</td>
+                                            <td>{{ number_format((float) $consumption->cons_m, 3) }}</td>
+                                            <td>{{ number_format((float) $consumption->cons_l, 3) }}</td>
+                                            <td>{{ number_format((float) $consumption->cons_xl, 3) }}</td>
+                                            <td>{{ number_format((float) $consumption->cons_2xl, 3) }}</td>
+                                            <td>{{ number_format((float) $consumption->cons_3xl, 3) }}</td>
+                                            <td>{{ number_format((float) $consumption->avg, 3) }}</td>
                                             {{-- <td>
                                                 <form action="{{ url('fabric/delete', $fabric->id) }}" method="post">
                                                     @csrf

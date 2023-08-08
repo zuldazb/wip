@@ -26,14 +26,9 @@ class Consumption extends Model
     {
         return $this->belongsTo(Spk::class);
     }
-    
-    // public function scopeFilter($query, array $filters)
-    // {
-    //     $query->when($filters['spk'] ?? false, function ($query, $spk) {
-    //         return $query->whereHas('spk', function ($query) use ($spk) {
-    //             $query->where('no_spk', $spk);
-    //         });
-    //     });
-    // }
-    
+
+    public function average()
+    {
+        return ($this->cons_s + $this->cons_m + $this->cons_l + $this->cons_xl + $this->cons_2xl + $this->cons_3xl) / 6;
+    }
 }
