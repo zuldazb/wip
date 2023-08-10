@@ -42,6 +42,8 @@
                                         <th>XL</th>
                                         <th>2XL</th>
                                         <th>3XL</th>
+                                        <th>Total</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -60,8 +62,12 @@
                                             <td>{{ $spk->spk_xl }}</td>
                                             <td>{{ $spk->spk_2xl }}</td>
                                             <td>{{ $spk->spk_3xl }}</td>
-                                            {{-- <td>
-                                                <form action="{{ url('fabric/delete', $fabric->id) }}" method="post">
+                                            <td>{{ $spk->total() }}</td>
+                                            <td>
+                                                <a class="btn btn-primary" href="/spk_s/{{ $spk->no_spk }}"><i
+                                                        class="fas fa-eye"></i></a>
+
+                                                {{-- <form action="{{ url('fabric/delete', $fabric->id) }}" method="post">
                                                     @csrf
                                                     @method('DELETE')
                                                     <a class="btn btn-primary"
@@ -69,8 +75,10 @@
                                                             class="fas fa-edit"></i></a>
                                                     <button class="btn btn-primary" type="submit"><i
                                                             class="fas fa-trash"></i></button>
-                                                </form>
-                                            </td> --}}
+                                                </form> --}}
+                                            </td>
+                                        </tr>
+
                                         </tr>
                                     @endforeach
                                 </tbody>

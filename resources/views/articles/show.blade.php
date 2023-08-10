@@ -79,13 +79,13 @@
                                         <tr>
                                             <td>{{ $consumption->fabric->name }}</td>
                                             <td>{{ $consumption->fabric->supplier }}</td>
-                                            <td>{{ $consumption->cons_s }}</td>
-                                            <td>{{ $consumption->cons_m }}</td>
-                                            <td>{{ $consumption->cons_l }}</td>
-                                            <td>{{ $consumption->cons_xl }}</td>
-                                            <td>{{ $consumption->cons_2xl }}</td>
-                                            <td>{{ $consumption->cons_3xl }}</td>
-                                            <td>{{ $consumption->average() }}</td>
+                                            <td>{{ number_format((float) $consumption->cons_s, 3) }}</td>
+                                            <td>{{ number_format((float) $consumption->cons_m, 3) }}</td>
+                                            <td>{{ number_format((float) $consumption->cons_l, 3) }}</td>
+                                            <td>{{ number_format((float) $consumption->cons_xl, 3) }}</td>
+                                            <td>{{ number_format((float) $consumption->cons_2xl, 3) }}</td>
+                                            <td>{{ number_format((float) $consumption->cons_3xl, 3) }}</td>
+                                            <td>{{ number_format((float) $consumption->average(), 3) }}</td>
                                             {{-- <td>
                                                 <form action="{{ url('fabric/delete', $fabric->id) }}" method="post">
                                                     @csrf

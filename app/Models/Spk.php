@@ -27,4 +27,12 @@ class Spk extends Model
         return $this->belongsTo(Makloon::class);
     }
 
+    public function total()
+    {
+        return $this->spk_s + $this->spk_m + $this->spk_l + $this->spk_xl + $this->spk_2xl + $this->spk_3xl;
+    }
+
+    public function coba()
+    {
+    }
 }

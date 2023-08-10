@@ -53,13 +53,26 @@ class SPKController extends Controller
     public function show($spk)
     {
         $consumptions = Consumption::with('spk', 'fabric', 'article')
-            ->whereHas('spk', function ($query) use ($spk){
+            ->whereHas('spk', function ($query) use ($spk) {
                 $query->where('no_spk', '=', $spk);
             })->get();
 
-        // $consumptions = Consumption::latest()->filter(request(['spk']))->limit(5)->get();
-        // @dd($consumptions);
+        // $consumptions = Consumption::with('spk', 'fabric', 'article')->get();
+        $consumptions = $consumptions->map(function ($item, $key) use ($spk) {
+            $spks = SPK::where('no_spk', '=', $spk)->first();
+            $item->total_s = $item->cons_s * $spks->spk_s;
+            $item->total_m = $item->cons_m * $spks->spk_m;
+            $item->total_l = $item->cons_l * $spks->spk_l;
+            $item->total_xl = $item->cons_xl * $spks->spk_xl;
+            $item->total_2xl = $item->cons_2xl * $spks->spk_2xl;
+            $item->total_3xl = $item->cons_3xl * $spks->spk_3xl;
+            return $item;
+        });
+
+
         // dd($consumptions);
+
+
         $spk_s = SPK::with('forecast', 'consumptions')->where('no_spk', '=', $spk)->get();
         return view('spk_s.show', [
             'spks' => $spk_s,

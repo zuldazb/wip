@@ -60,7 +60,7 @@
                                             <td>{{ number_format((float) $consumption->cons_xl, 3) }}</td>
                                             <td>{{ number_format((float) $consumption->cons_2xl, 3) }}</td>
                                             <td>{{ number_format((float) $consumption->cons_3xl, 3) }}</td>
-                                            <td>{{ number_format((float) $consumption->avg, 3) }}</td>
+                                            <td>{{ number_format((float) $consumption->average(), 3) }}</td>
                                             {{-- <td>
                                                 <form action="{{ url('fabric/delete', $fabric->id) }}" method="post">
                                                     @csrf
